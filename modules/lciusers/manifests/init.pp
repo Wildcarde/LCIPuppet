@@ -2,9 +2,7 @@
 class lciusers {
 ## This class is a massively bruteforce demonstration of making users and groups
 
-$defaults= {
-  'ensure' => present,
-}
+
 userlist = lookup('lciusers::users','')
 if userlist != ''{
   create_resources(user,$lciusers::userlist,$lciusers::defaults)

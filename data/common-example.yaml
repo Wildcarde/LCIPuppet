@@ -3,9 +3,11 @@ lciusers::users:
   'testuser1':
     uid: 2020
     password: '!!' ##MySecretPassword
+    ensure: present
   'testuser2':
     uid: 2021
     password: '!!'
+    ensure: present
 
 ### passwords generated in python with:
 # python -c "import random,string,crypt; randomsalt = ''.join(random.sample(string.ascii_letters,8)); print(crypt.crypt('MySecretPassword', '\$6\$%s\$' % randomsalt))"
@@ -15,3 +17,4 @@ lciusers::groups:
   'testgroup':
     gid: 9999
     members: 'testuser1'
+    ensure: present
