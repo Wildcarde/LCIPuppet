@@ -3,15 +3,15 @@ class lciusers {
 ## This class is a massively bruteforce demonstration of making users and groups
 
 
-userlist = lookup('lciusers::users','')
+$userlist = lookup('lciusers::users','')
 if userlist != ''{
-  create_resources(user,$lciusers::userlist,$lciusers::defaults)
+  create_resources(user,$userlist)
 }
 
-grouplist = lookup('lciusers:groups','')
+$grouplist = lookup('lciusers::groups','')
 
 if grouplist != ''{
-  create_resources(group,$lciusers::grouplist,$lciusers::defaults)
+  create_resources(group,$grouplist)
 }
 
 }
