@@ -1,7 +1,7 @@
 class scheduler {
 
-	include scheduler::install
-	include scheduler::config
-	include scheduler::service
+  include scheduler::install
+  include scheduler::config
+  include scheduler::service
 
 }

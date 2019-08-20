@@ -1,6 +1,6 @@
 class scheduler::config inherits scheduler {
         
-	#file {	"/etc/pbs.conf":
+  #file {	"/etc/pbs.conf":
         #        ensure => "file",
         #        owner => "root",
         #        group => "root",
