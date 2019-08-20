@@ -1,31 +1,18 @@
+##simple service to mount NFS volumes onto the nodes
+
 class nfs_filesystems {
-
-  file { '/apps':
+## create a mount target on all devices for the nfs mount
+  file { '/mnt/nfs':
     ensure => 'directory',
     owner  => 'root',
     group  => 'root',
     mode   => '0755',
   }
-
-  mount { '/apps':
-    device  => 'master:/exports/apps',
-    fstype  => 'nfs',
+## mount nfs mount off Storage-0, this will populate fstab
+  mount { '/mnt/nfs':
     ensure  => 'mounted',
-    options => 'defaults,noauto',
-    atboot  => true,
-  }
-
-  file { '/dhome':
-    ensure => 'directory',
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0755',
-  }
-
-  mount { '/dhome':
-    device  => 'master:/exports/dhome',
+    device  => 'Storage-0:/mnt/share',
     fstype  => 'nfs',
-    ensure  => 'mounted',
     options => 'defaults,noauto',
     atboot  => true,
   }

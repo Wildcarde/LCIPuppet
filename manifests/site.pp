@@ -7,6 +7,10 @@
 node 'Compute-0', 'Compute-1' {
 
         class { 'test':}
+        class { 'nfs_filesystems': }
+        class { 'nfs_filesystems::workers': }
+
+
 }
 
 
@@ -14,4 +18,5 @@ node 'Compute-0', 'Compute-1' {
 node default {
   class { 'helloworld': }
   class { 'helloworld::motd': }
+  class { 'nfs_filesystems': }
 }
