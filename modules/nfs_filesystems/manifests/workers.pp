@@ -11,8 +11,8 @@ class nfs_filesystems::workers{
   mount { '/share/home':
     ensure  => 'mounted',
     device  => 'Login:/share/home',
-    fstype  => 'nfs',
-    options => 'defaults,noauto',
+    fstype  => 'nfs4',
+    options => 'rw,auto,_netdev',
     atboot  => true,
   }
 }
