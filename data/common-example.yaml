@@ -1,0 +1,17 @@
+## example common.yaml file
+lciusers::users:
+  'testuser1':
+    uid: 2020
+    password: '!!' ##MySecretPassword
+  'testuser2':
+    uid: 2021
+    password: '!!'
+
+### passwords generated in python with:
+# python -c "import random,string,crypt; randomsalt = ''.join(random.sample(string.ascii_letters,8)); print(crypt.crypt('MySecretPassword', '\$6\$%s\$' % randomsalt))"
+## output: '$6$QzKBaMtp$kmWUPTH7MB/57.ywc3fKGFJemIsP/pwVONuX8/Lfq7nwc2E0daBRbAbmrbSXIMz2fBM0l8p7jO/vn4N1yktGE0' ##MySecretPassword
+
+lciusers::groups:
+  'testgroup':
+    gid: 9999
+    members: 'testuser1'
